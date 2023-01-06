@@ -23,7 +23,7 @@ public class InventoryServiceApplication {
 
 			Inventory inventoryB = new Inventory();
 			inventoryB.setSkuCode("blue car");
-			inventoryB .setQuantity(2);
+			inventoryB .setQuantity(0);
 
 			inventoryRepository.save(inventoryA);
 			inventoryRepository.save(inventoryB);
