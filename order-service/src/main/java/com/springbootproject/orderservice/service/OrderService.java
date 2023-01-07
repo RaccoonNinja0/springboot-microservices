@@ -21,7 +21,7 @@ import java.util.UUID;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
     public void placeOrder(OrderRequest orderRequest){
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
@@ -36,7 +36,7 @@ public class OrderService {
         //communicate with inventory service using webClient to check product availability
         //append skucodes using uriBuilder.queryParam
         //the query will return InventoryResponse array in which every response has the isInStock boolean for each item.
-        InventoryResponse[] stockResults = webClient.get().uri("http://localhost:8082/api/inventory",
+        InventoryResponse[] stockResults = webClientBuilder.build().get().uri("http://inventory-service/api/inventory",
                         uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build()).retrieve()
                 .bodyToMono(InventoryResponse[].class)
                 .block();
