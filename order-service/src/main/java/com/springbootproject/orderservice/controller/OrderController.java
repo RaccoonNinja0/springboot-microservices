@@ -25,7 +25,6 @@ public class OrderController {
     public CompletableFuture<String> placeOrder(@RequestBody OrderRequest orderRequest){
         return  CompletableFuture.supplyAsync(()-> orderService.placeOrder(orderRequest));
     }
-
     public CompletableFuture<String> fallbackMethod(OrderRequest orderRequest, RuntimeException runtimeException){
         return CompletableFuture.supplyAsync(()->"Something went wrong while sending the request");
     }
