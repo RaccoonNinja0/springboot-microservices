@@ -69,6 +69,17 @@
                     <target>16</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <from>
+                        <image>apigateway-dockerfile</image>
+                    </from>
+                    <to><image>registry.hub.docker.com/chenhaowei199901/${artifactId}</image></to>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
